@@ -59,5 +59,19 @@ function submitFormulario(e) {
 }
 
 function mostrarAlerta(msg) {
-  console.log(msg);
+  const existeError = document.querySelector(".error");
+
+  if (!existeError) {
+    const divMensaje = document.createElement("div");
+    divMensaje.classList.add("error");
+
+    // Mostrar mensaje
+    divMensaje.textContent = msg;
+
+    formulario.appendChild(divMensaje);
+
+    setTimeout(() => {
+      divMensaje.remove();
+    }, 3000);
+  }
 }
